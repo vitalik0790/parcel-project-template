@@ -117,83 +117,16 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"sass/main.scss":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"./../images/tel/wave-tel.png":[["wave-tel.7a53803e.png","images/tel/wave-tel.png"],"images/tel/wave-tel.png"],"./../images/tel/wave-tel@2x.png":[["wave-tel@2x.a18b5ba4.png","images/tel/wave-tel@2x.png"],"images/tel/wave-tel@2x.png"],"./../images/tablet/wave-tablet.png":[["wave-tablet.379ae5e2.png","images/tablet/wave-tablet.png"],"images/tablet/wave-tablet.png"],"./../images/tablet/wave-tablet@2x.png":[["wave-tablet@2x.b799ef67.png","images/tablet/wave-tablet@2x.png"],"images/tablet/wave-tablet@2x.png"],"./../images/desctop/wave-desc.png":[["wave-desc.0d4b96c4.png","images/desctop/wave-desc.png"],"images/desctop/wave-desc.png"],"./../images/desctop/wave-desc@2x.png":[["wave-desc@2x.3951ea31.png","images/desctop/wave-desc@2x.png"],"images/desctop/wave-desc@2x.png"],"./../images/desctop/fire-dec.png":[["fire-dec.62722c06.png","images/desctop/fire-dec.png"],"images/desctop/fire-dec.png"],"./../images/desctop/fire-dec@2x.png":[["fire-dec@2x.2338fb48.png","images/desctop/fire-dec@2x.png"],"images/desctop/fire-dec@2x.png"],"./../images/tel/our-pr-tel.png":[["our-pr-tel.4f3ef781.png","images/tel/our-pr-tel.png"],"images/tel/our-pr-tel.png"],"./../images/tel/our-pr-tel@2x.png":[["our-pr-tel@2x.a62e03fa.png","images/tel/our-pr-tel@2x.png"],"images/tel/our-pr-tel@2x.png"],"./../images/tablet/our-pr-tablet.png":[["our-pr-tablet.2a1b0029.png","images/tablet/our-pr-tablet.png"],"images/tablet/our-pr-tablet.png"],"./../images/tablet/our-pr-tablet@2x.png":[["our-pr-tablet@2x.aacd3a60.png","images/tablet/our-pr-tablet@2x.png"],"images/tablet/our-pr-tablet@2x.png"],"./../images/desctop/our-pr-desc.png":[["our-pr-desc.d4ed97bd.png","images/desctop/our-pr-desc.png"],"images/desctop/our-pr-desc.png"],"./../images/desctop/our-pr-desc@2x.png":[["our-pr-desc@2x.a40d092c.png","images/desctop/our-pr-desc@2x.png"],"images/desctop/our-pr-desc@2x.png"],"./../images/icons/ok1.svg":[["ok1.3058fb74.svg","images/icons/ok1.svg"],"images/icons/ok1.svg"],"./../images/icons/fire-desktop.gif":[["fire-desktop.3beb0468.gif","images/icons/fire-desktop.gif"],"images/icons/fire-desktop.gif"],"./../images/tel/ton-tel.jpg":[["ton-tel.4b010b96.jpg","images/tel/ton-tel.jpg"],"images/tel/ton-tel.jpg"],"./../images/tel/ton-tel@2x.jpg":[["ton-tel@2x.88697183.jpg","images/tel/ton-tel@2x.jpg"],"images/tel/ton-tel@2x.jpg"],"./../images/tablet/ton-tab.jpg":[["ton-tab.7ef14285.jpg","images/tablet/ton-tab.jpg"],"images/tablet/ton-tab.jpg"],"./../images/tablet/ton-tab@2x.jpg":[["ton-tab@2x.eaa96b23.jpg","images/tablet/ton-tab@2x.jpg"],"images/tablet/ton-tab@2x.jpg"],"./../images/icons/icon-vk.svg":[["icon-vk.543f7ff7.svg","images/icons/icon-vk.svg"],"images/icons/icon-vk.svg"],"./../images/request-bg.png":[["request-bg.c0558f5e.png","images/request-bg.png"],"images/request-bg.png"],"./../images/tel/foot-tel.png":[["foot-tel.97a9f6a2.png","images/tel/foot-tel.png"],"images/tel/foot-tel.png"],"./../images/tel/foot-tel@2x.png":[["foot-tel@2x.092deabb.png","images/tel/foot-tel@2x.png"],"images/tel/foot-tel@2x.png"],"./../images/tablet/foot-tablet.png":[["foot-tablet.b3cad8bf.png","images/tablet/foot-tablet.png"],"images/tablet/foot-tablet.png"],"./../images/tablet/foot-tablet@2x.png":[["foot-tablet@2x.74bd20fb.png","images/tablet/foot-tablet@2x.png"],"images/tablet/foot-tablet@2x.png"],"./../images/desctop/foot-desc.png":[["foot-desc.118a66cf.png","images/desctop/foot-desc.png"],"images/desctop/foot-desc.png"],"./../images/desctop/foot-desc@2x.png":[["foot-desc@2x.3a180fc4.png","images/desctop/foot-desc@2x.png"],"images/desctop/foot-desc@2x.png"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
-"use strict";
-
-require("./sass/main.scss");
-},{"./sass/main.scss":"sass/main.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+})({"js/anchors.js":[function(require,module,exports) {
+$("a.scrollto").click(function () {
+  var elementClick = $(this).attr("href");
+  var destination = $(elementClick).offset().top;
+  jQuery("html:not(:animated),body:not(:animated)").animate({
+    scrollTop: destination
+  }, 500);
+  return false;
+});
+},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -397,5 +330,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/src.e31bb0bc.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/anchors.js"], null)
+//# sourceMappingURL=/anchors.b95805bd.js.map
