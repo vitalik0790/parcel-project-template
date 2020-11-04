@@ -207,8 +207,9 @@ img {
   width: 100%;
   top: 0;
   left: 0;
-  background: linear-gradient(124deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0.6) 100%);
+  background-color: #ffffff;
   padding-top: 30px;
+  padding-bottom: 30px;
 }
 @media screen and (min-width: 767px) {
   .header {
@@ -680,6 +681,24 @@ img {
     background-image: url(/wave-tel@2x.a18b5ba4.png);
   }
 }
+.hero__anchor {
+  position: relative;
+}
+.hero__anchor-link {
+  position: absolute;
+  top: -100px;
+}
+@media screen and (min-width: 768px) and (max-width: 1399px) {
+  .hero__anchor-link {
+    top: -130px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .hero__anchor-link {
+    top: -150px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .hero {
     background-image: url(/wave-tablet.379ae5e2.png);
@@ -1093,6 +1112,24 @@ body {
   padding-bottom: 50px;
 }
 
+.how-we-do__anchor {
+  position: relative;
+}
+.how-we-do__anchor-link {
+  position: absolute;
+  top: -120px;
+}
+@media screen and (min-width: 768px) and (max-width: 1399px) {
+  .how-we-do__anchor-link {
+    top: -130px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .how-we-do__anchor-link {
+    top: -150px;
+  }
+}
+
 .how-we-do__main-caption {
   font-size: 800;
   font-size: 20px;
@@ -1326,6 +1363,24 @@ body {
   .our-program {
     padding-top: 120px;
     padding-bottom: 364px;
+  }
+}
+
+.our-program__anchor {
+  position: relative;
+}
+.our-program__anchor-link {
+  position: absolute;
+  top: -120px;
+}
+@media screen and (min-width: 768px) and (max-width: 1399px) {
+  .our-program__anchor-link {
+    top: -140px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .our-program__anchor-link {
+    top: -150px;
   }
 }
 
@@ -2027,6 +2082,24 @@ body {
   }
 }
 
+.instructor__anchor {
+  position: relative;
+}
+.instructor__anchor-link {
+  position: absolute;
+  top: -100px;
+}
+@media screen and (min-width: 768px) and (max-width: 1399px) {
+  .instructor__anchor-link {
+    top: -120px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .instructor__anchor-link {
+    top: -130px;
+  }
+}
+
 .warranties {
   padding-bottom: 30px;
   padding-top: 50px;
@@ -2681,6 +2754,24 @@ body {
 @media not all, screen and (min-device-pixel-ratio: 2) and (min-width: 1400px), screen and (min-resolution: 192dpi) and (min-width: 1400px), screen and (min-resolution: 2dppx) and (min-width: 1400px) {
   .request {
     background-image: url(/foot-desc@2x.3a180fc4.png);
+  }
+}
+
+.request__anchor {
+  position: relative;
+}
+.request__anchor-link {
+  position: absolute;
+  top: -120px;
+}
+@media screen and (min-width: 768px) and (max-width: 1399px) {
+  .request__anchor-link {
+    top: -140px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .request__anchor-link {
+    top: -150px;
   }
 }
 
